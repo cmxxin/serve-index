@@ -347,9 +347,9 @@ function fileSort(a, b) {
     return a.name === b.name ? 0
       : a.name === '..' ? -1 : 1;
   }
-
-  return Number(b.stat && b.stat.isDirectory()) - Number(a.stat && a.stat.isDirectory()) ||
-    String(a.name).toLocaleLowerCase().localeCompare(String(b.name).toLocaleLowerCase());
+  return b.stat.mtime - a.stat.mtime
+//   return Number(b.stat && b.stat.isDirectory()) - Number(a.stat && a.stat.isDirectory()) ||
+//     String(a.name).toLocaleLowerCase().localeCompare(String(b.name).toLocaleLowerCase());
 }
 
 /**
